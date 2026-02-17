@@ -11,14 +11,17 @@ public class Main {
         Libro l3 = new Libro("El Señor de los Anillos", "J.R.R. Tolkien", 1200);
         l3.mostrarDetalles();
 
-      
+        CuentaBancaria cuenta = new CuentaBancaria("Maria", 500);
+        cuenta.depositar(200);
+        System.out.println(cuenta.getSaldo()); // Debería ser 700
+        cuenta.retirar(1000); // Debería mostrar error de fondos insuficientes
 
         System.out.println(l1.mostrarDetalles());
         System.out.println(l2.mostrarDetalles());
         System.out.println(l3.mostrarDetalles());
 
 
-        
+
     } 
 
 

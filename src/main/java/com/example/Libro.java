@@ -47,6 +47,7 @@ public void setPaginas(int paginas) {
 }
 
 
+
 public String mostrarDetalles() {
     return "Libro [titulo=" + titulo + ", autor=" + autor + ", paginas=" + paginas + "]";
 }
