@@ -2,33 +2,52 @@ package com.example;
 
 public class CuentaBancaria {
 
-//Atributos 
+    // Atributos privados
+    private String titular;
+    private double saldo;
 
-    private String Titular;
-    private  int Saldo;
-   
-   
+    // Constructor
+    public CuentaBancaria(String titular, double saldoInicial) {
+        this.titular = titular;
 
-//Constructores 
+        if (saldoInicial < 0) {
+            this.saldo = 0;
+        } else {
+            this.saldo = saldoInicial;
+        }
+    }
 
+    // Getter y Setter titular
+    public String getTitular() {
+        return titular;
+    }
 
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
 
-//metodos get y setter 
-public String getTitular() {
-    return Titular;
-}
-public void setTitular(String titular) {
-    Titular = titular;
-}
-public int getSaldo() {
-    return Saldo;
-}
+    // SOLO Getter para saldo
+    public double getSaldo() {
+        return saldo;
+    }
 
+    // Método depositar
+    public void depositar(double cantidad) {
+        if (cantidad > 0) {
+            saldo += cantidad;
+        } else {
+            System.out.println("Error: La cantidad debe ser mayor que 0.");
+        }
+    }
 
-public String depositar() {
-    return "CuentaBancaria [Titular=" + Titular + ", Saldo=" + Saldo + "]";
-}
-
-
-
+    // Método retirar
+    public void retirar(double cantidad) {
+        if (cantidad <= 0) {
+            System.out.println("Error: La cantidad debe ser mayor que 0.");
+        } else if (cantidad > saldo) {
+            System.out.println("Error: Fondos insuficientes.");
+        } else {
+            saldo -= cantidad;
+        }
+    }
 }
